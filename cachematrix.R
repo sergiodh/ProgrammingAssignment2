@@ -1,7 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Two functions are created in order to get the inverse of an invertible  matrix.
+## Has the inverse already been calculated, it is returned without extra computing.
+## If the inverse hasn't been calculated before, the function "solve" is used and the inverse is cached.
 
-## Write a short comment describing this function
+## 1st funcion: makeCacheMatrix. It returns a list containing:
+## set() defines the matrix
+## get() read the matrix
+## setinverse() defines the inverse of the matrix
+## getinverse() read the inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
           s <- NULL
