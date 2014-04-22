@@ -21,17 +21,19 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## 2nd function: CacheSolve. Input: x output of makeCacheMatrix
+## It reads the "getinverse" value within the final list in makeCacheMatrix.
+## If null, it calculates the inverse, returns it and caches it.
+## If not null, it returns the cached data in makeCacheMatrix (no additional computing).
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-          s <- x$getsolve()
-          if(!is.null(s)) {
-                message("getting cached data")
-                return(s)
-          }
-          data <- x$get()
-          s <- solve(data, ...)
-          x$setsolve(s)
-          s
+  inverse<-x$getinverse()
+  # if not null
+  if(!is.null(inverse)) {
+    message("getting cached data")
+    return(inverse)
+  }
+  #if null
+  x$setinverse(solve(x$get(),...))
+  x$getinverse()
 }
